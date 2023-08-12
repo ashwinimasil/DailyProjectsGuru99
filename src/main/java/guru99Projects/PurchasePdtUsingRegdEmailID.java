@@ -23,12 +23,16 @@ public class PurchasePdtUsingRegdEmailID {
 		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("Test123$");
 		driver.findElement(By.xpath("//button[@id='send2']")).click();
 		//click on my wishlist
-		driver.findElement(By.xpath("(//a[text()='My Wishlist'])[2]")).click();
+		driver.findElement(By.xpath("//a[text()='My Wishlist']")).click();
 		//click on add to cart
 		java.util.List<WebElement> addToCart = driver.findElements(By.xpath("//span[text()='Add to Cart']"));
 		int size = addToCart.size();
-		for (int i=0;i<2;i++) {
+		System.out.println(size);
+		for (int i=0;i<size;i++) {
 			addToCart.get(i).click();
+			driver.findElement(By.xpath("//span[text()='Account']")).click();
+			System.out.println("account clicked"+i);
+			driver.findElement(By.xpath("//*[contains(text(),'My Wishlist')]")).click();
 	}
 	}
 }
